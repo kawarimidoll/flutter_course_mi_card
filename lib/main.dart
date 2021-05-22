@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
 void main() {
   runApp(MyApp());
@@ -10,7 +11,7 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       home: Scaffold(
-        backgroundColor: Colors.teal,
+        backgroundColor: Colors.cyan.shade200,
         body: SafeArea(
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
@@ -33,7 +34,7 @@ class MyApp extends StatelessWidget {
                 style: TextStyle(
                   fontFamily: 'Source Sans Pro',
                   fontSize: 20.0,
-                  color: Colors.teal.shade100,
+                  color: Colors.teal.shade600,
                   letterSpacing: 2.5,
                   fontWeight: FontWeight.bold,
                 ),
@@ -41,45 +42,29 @@ class MyApp extends StatelessWidget {
               SizedBox(
                 height: 20.0,
                 width: 150.0,
-                child: Divider(
-                  color: Colors.teal.shade100,
-                ),
+                child: Divider(color: Colors.teal.shade600),
               ),
-              Card(
-                margin: EdgeInsets.symmetric(vertical: 10.0, horizontal: 25.0),
-                child: ListTile(
-                  leading: Icon(
-                    Icons.phone,
-                    color: Colors.teal,
-                  ),
-                  title: Text(
-                    '+81 123 456 789',
-                    style: TextStyle(
-                      color: Colors.teal.shade900,
-                      fontFamily: 'Source Sans Pro',
-                      fontSize: 20.0,
-                    ),
-                  ),
-                ),
-              ),
-              Card(
-                margin: EdgeInsets.symmetric(vertical: 10.0, horizontal: 25.0),
-                child: ListTile(
-                  leading: Icon(
-                    Icons.email,
-                    color: Colors.teal,
-                  ),
-                  title: Text(
-                    'kawarimidoll@email.com',
-                    style: TextStyle(
-                      color: Colors.teal.shade900,
-                      fontFamily: 'Source Sans Pro',
-                      fontSize: 20.0,
-                    ),
-                  ),
-                ),
-              ),
+              myCard('@kawarimidoll', FontAwesomeIcons.twitter),
+              myCard('@kawarimidoll', FontAwesomeIcons.github),
+              myCard('Room101, Japan', Icons.room),
             ],
+          ),
+        ),
+      ),
+    );
+  }
+
+  Widget myCard(displayStr, icon) {
+    return Card(
+      margin: EdgeInsets.symmetric(vertical: 10.0, horizontal: 25.0),
+      child: ListTile(
+        leading: Icon(icon, color: Colors.teal),
+        title: Text(
+          displayStr,
+          style: TextStyle(
+            color: Colors.teal.shade900,
+            fontFamily: 'Source Sans Pro',
+            fontSize: 20.0,
           ),
         ),
       ),
